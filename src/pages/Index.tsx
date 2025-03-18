@@ -14,14 +14,14 @@ const Index = () => {
     document.title = "Biteon - Web Development & Software Agency";
     
     // Try to find and update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
+    let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement;
     if (metaDescription) {
       metaDescription.setAttribute("content", "Biteon is a premium web development and software agency specializing in modern, futuristic solutions for businesses.");
     } else {
       // Create meta description if it doesn't exist
       metaDescription = document.createElement('meta');
-      metaDescription.name = "description";
-      metaDescription.content = "Biteon is a premium web development and software agency specializing in modern, futuristic solutions for businesses.";
+      metaDescription.setAttribute("name", "description");
+      metaDescription.setAttribute("content", "Biteon is a premium web development and software agency specializing in modern, futuristic solutions for businesses.");
       document.getElementsByTagName('head')[0].appendChild(metaDescription);
     }
   }, []);
