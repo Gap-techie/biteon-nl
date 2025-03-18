@@ -2,6 +2,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
+import { AboutUs } from '@/components/AboutUs';
 import { Technologies } from '@/components/Technologies';
 import { ContactForm } from '@/components/ContactForm';
 import { Footer } from '@/components/Footer';
@@ -32,6 +33,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <Services />
+        <AboutUs />
         <Technologies />
         <ContactForm />
       </main>
