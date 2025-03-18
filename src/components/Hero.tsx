@@ -51,52 +51,17 @@ export function Hero() {
           </div>
           <div className="md:w-6/12 flex justify-center md:justify-end">
             <ScrollReveal delay={600} direction="right">
-              <div className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-biteon-blue to-biteon-dark-blue rounded-lg blur opacity-30 animate-pulse-slow"></div>
-                <div className="relative bg-white p-6 md:p-8 rounded-lg shadow-xl">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex flex-col items-center justify-center p-4 md:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                      <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-biteon-blue/10 rounded-full mb-3">
-                        <span className="text-biteon-blue font-bold">WD</span>
-                      </div>
-                      <h3 className="font-semibold text-center">Web Development</h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center p-4 md:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                      <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-biteon-blue/10 rounded-full mb-3">
-                        <span className="text-biteon-blue font-bold">MA</span>
-                      </div>
-                      <h3 className="font-semibold text-center">Mobile Apps</h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center p-4 md:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                      <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-biteon-blue/10 rounded-full mb-3">
-                        <span className="text-biteon-blue font-bold">SD</span>
-                      </div>
-                      <h3 className="font-semibold text-center">System Design</h3>
-                    </div>
-                    <div className="flex flex-col items-center justify-center p-4 md:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                      <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-biteon-blue/10 rounded-full mb-3">
-                        <span className="text-biteon-blue font-bold">DO</span>
-                      </div>
-                      <h3 className="font-semibold text-center">DevOps</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Add business and software development image */}
-              <div className="mt-8 relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-biteon-blue to-biteon-dark-blue rounded-lg blur opacity-20 animate-pulse-slow"></div>
-                <div className="relative rounded-lg overflow-hidden shadow-xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                    alt="Software development and business collaboration" 
-                    className="w-full h-auto object-cover aspect-video"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                    <div className="p-6 text-white">
-                      <h4 className="text-xl font-bold mb-1">Bridging Business & Technology</h4>
-                      <p className="text-sm text-gray-200">We turn complex business challenges into elegant digital solutions</p>
-                    </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  alt="Professional software development team at work" 
+                  className="relative rounded-lg w-full h-auto object-cover shadow-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                  <div className="p-6 text-white">
+                    <h4 className="text-xl font-bold mb-1">Bridging Business & Technology</h4>
+                    <p className="text-sm text-gray-200">Driving digital transformation with innovative solutions</p>
                   </div>
                 </div>
               </div>

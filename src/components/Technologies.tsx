@@ -3,42 +3,87 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code, Server, Database, TestTube, Cloud, Layers } from 'lucide-react';
 
+// Technology logos and data
 const techCategories = [
   {
     id: "languages",
     label: "Languages",
     icon: <Code className="w-5 h-5 mr-2" />,
-    items: ["Java", "JavaScript", "TypeScript", "C#", "Python", "Go", "PHP"]
+    items: [
+      { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Go", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" },
+      { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" }
+    ]
   },
   {
     id: "frameworks",
     label: "Frameworks",
     icon: <Layers className="w-5 h-5 mr-2" />,
-    items: ["Spring Boot", "Flask", "React", "React Native", "Next.js", "Angular", "Gatsby", "Laravel", "Expo", "gRPC"]
+    items: [
+      { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+      { name: "Flask", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+      { name: "Gatsby", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original.svg" },
+      { name: "Laravel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" },
+      { name: "Expo", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "gRPC", logo: "https://grpc.io/img/logos/grpc-icon-color.png" }
+    ]
   },
   {
     id: "databases",
     label: "Databases & APIs",
     icon: <Database className="w-5 h-5 mr-2" />,
-    items: ["Oracle", "MongoDB", "PostgreSQL", "GraphQL", "Spark"]
+    items: [
+      { name: "Oracle", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+      { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+      { name: "Spark", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" }
+    ]
   },
   {
     id: "testing",
     label: "Testing & QA",
     icon: <TestTube className="w-5 h-5 mr-2" />,
-    items: ["JUnit", "Mockito", "REST-assured", "Jest", "Cypress"]
+    items: [
+      { name: "JUnit", logo: "https://junit.org/junit5/assets/img/junit5-logo.png" },
+      { name: "Mockito", logo: "https://raw.githubusercontent.com/mockito/mockito/main/src/javadoc/org/mockito/logo.png" },
+      { name: "REST-assured", logo: "https://rest-assured.io/img/logo-transparent.png" },
+      { name: "Jest", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+      { name: "Cypress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypress/cypress-original.svg" }
+    ]
   },
   {
     id: "cloud",
     label: "Cloud & DevOps",
     icon: <Cloud className="w-5 h-5 mr-2" />,
-    items: ["AWS", "Azure", "Docker", "Jenkins", "GitHub Actions"]
+    items: [
+      { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+      { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Jenkins", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+      { name: "GitHub Actions", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }
+    ]
   },
   {
     id: "tools",
     label: "UI & Build Tools",
     icon: <Server className="w-5 h-5 mr-2" />,
-    items: ["Webpack", "Babel", "Storybook", "Bootstrap", "HTML5", "SCSS/CSS"]
+    items: [
+      { name: "Webpack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" },
+      { name: "Babel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babel/babel-original.svg" },
+      { name: "Storybook", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" },
+      { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "SCSS/CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" }
+    ]
   }
 ];
 
@@ -82,10 +127,20 @@ export function Technologies() {
                       key={index}
                       className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-biteon-blue/30 transition-all duration-300"
                     >
-                      <div className="w-12 h-12 flex items-center justify-center bg-biteon-blue/10 rounded-full mb-3">
-                        <span className="text-biteon-blue font-semibold text-sm">{tech.substring(0, 2)}</span>
+                      <div className="w-12 h-12 flex items-center justify-center mb-3">
+                        <img 
+                          src={tech.logo} 
+                          alt={`${tech.name} logo`} 
+                          className="max-w-full max-h-full object-contain"
+                          onError={(e) => {
+                            // Fallback for failed logo loading
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null;
+                            target.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><text x="50%" y="50%" font-size="14" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-weight="bold" fill="%232271BF">${tech.name.substring(0, 2)}</text></svg>`;
+                          }}
+                        />
                       </div>
-                      <span className="text-gray-800 font-medium text-center">{tech}</span>
+                      <span className="text-gray-800 font-medium text-center">{tech.name}</span>
                     </div>
                   ))}
                 </div>
