@@ -1,36 +1,43 @@
 
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Code, Server, Database, TestTube, Cloud, Layers } from 'lucide-react';
 
 const techCategories = [
   {
     id: "languages",
     label: "Languages",
+    icon: <Code className="w-5 h-5 mr-2" />,
     items: ["Java", "JavaScript", "TypeScript", "C#", "Python", "Go", "PHP"]
   },
   {
     id: "frameworks",
     label: "Frameworks",
+    icon: <Layers className="w-5 h-5 mr-2" />,
     items: ["Spring Boot", "Flask", "React", "React Native", "Next.js", "Angular", "Gatsby", "Laravel", "Expo", "gRPC"]
   },
   {
     id: "databases",
     label: "Databases & APIs",
+    icon: <Database className="w-5 h-5 mr-2" />,
     items: ["Oracle", "MongoDB", "PostgreSQL", "GraphQL", "Spark"]
   },
   {
     id: "testing",
     label: "Testing & QA",
+    icon: <TestTube className="w-5 h-5 mr-2" />,
     items: ["JUnit", "Mockito", "REST-assured", "Jest", "Cypress"]
   },
   {
     id: "cloud",
     label: "Cloud & DevOps",
+    icon: <Cloud className="w-5 h-5 mr-2" />,
     items: ["AWS", "Azure", "Docker", "Jenkins", "GitHub Actions"]
   },
   {
     id: "tools",
     label: "UI & Build Tools",
+    icon: <Server className="w-5 h-5 mr-2" />,
     items: ["Webpack", "Babel", "Storybook", "Bootstrap", "HTML5", "SCSS/CSS"]
   }
 ];
@@ -52,14 +59,15 @@ export function Technologies() {
 
         <ScrollReveal delay={300}>
           <Tabs defaultValue="languages" className="w-full">
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-8 overflow-x-auto pb-2">
               <TabsList className="bg-gray-100 p-1 rounded-full">
                 {techCategories.map((category) => (
                   <TabsTrigger 
                     key={category.id}
                     value={category.id}
-                    className="rounded-full px-4 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-300"
+                    className="rounded-full px-4 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-300 flex items-center"
                   >
+                    {category.icon}
                     {category.label}
                   </TabsTrigger>
                 ))}

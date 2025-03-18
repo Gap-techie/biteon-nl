@@ -82,6 +82,24 @@ export function Hero() {
                   </div>
                 </div>
               </div>
+              
+              {/* Add business and software development image */}
+              <div className="mt-8 relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-biteon-blue to-biteon-dark-blue rounded-lg blur opacity-20 animate-pulse-slow"></div>
+                <div className="relative rounded-lg overflow-hidden shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                    alt="Software development and business collaboration" 
+                    className="w-full h-auto object-cover aspect-video"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="p-6 text-white">
+                      <h4 className="text-xl font-bold mb-1">Bridging Business & Technology</h4>
+                      <p className="text-sm text-gray-200">We turn complex business challenges into elegant digital solutions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ScrollReveal>
           </div>
         </div>
