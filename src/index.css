@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +93,66 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #2271BF, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hover-underline-animation {
+    position: relative;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #2271BF;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .whatsapp-bubble-animation {
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
   }
 }

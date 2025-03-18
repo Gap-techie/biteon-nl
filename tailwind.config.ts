@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				biteon: {
+					blue: '#2271BF',
+					black: '#000000',
+					white: '#FFFFFF',
+					gray: '#F0F2F5',
+					'dark-gray': '#121212',
+					'light-blue': '#5DA9FF',
+					'dark-blue': '#1A4980',
 				}
 			},
 			borderRadius: {
@@ -84,11 +94,76 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					}
+				},
+				'scale-in': {
+					'0%': {
+						transform: 'scale(0.95)',
+						opacity: '0'
+					},
+					'100%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					}
+				},
+				'slide-in-right': {
+					'0%': { transform: 'translateX(100%)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { 
+						opacity: 1,
+						transform: 'scale(1)' 
+					},
+					'50%': { 
+						opacity: 0.85,
+						transform: 'scale(1.02)' 
+					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'background-shine': {
+					'from': { backgroundPosition: '200% 0' },
+					'to': { backgroundPosition: '0% 0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'fade-out': 'fade-out 0.5s ease-out forwards',
+				'scale-in': 'scale-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+				'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
+				'pulse-slow': 'pulse-slow 5s infinite ease-in-out',
+				'float': 'float 6s infinite ease-in-out',
+				'background-shine': 'background-shine 8s linear infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'hero-pattern': 'linear-gradient(to right, rgba(34, 113, 191, 0.05), rgba(0, 0, 0, 0.1))',
+				'tech-pattern': 'linear-gradient(60deg, rgba(34, 113, 191, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%)',
+				'shine': 'linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%)'
 			}
 		}
 	},

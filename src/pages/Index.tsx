@@ -1,12 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { Services } from '@/components/Services';
+import { Technologies } from '@/components/Technologies';
+import { ContactForm } from '@/components/ContactForm';
+import { Footer } from '@/components/Footer';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { useEffect } from 'react';
 
 const Index = () => {
+  useEffect(() => {
+    // Set page title and meta description for SEO
+    document.title = "Biteon - Web Development & Software Agency";
+    
+    // Try to find and update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Biteon is a premium web development and software agency specializing in modern, futuristic solutions for businesses.");
+    } else {
+      // Create meta description if it doesn't exist
+      metaDescription = document.createElement('meta');
+      metaDescription.name = "description";
+      metaDescription.content = "Biteon is a premium web development and software agency specializing in modern, futuristic solutions for businesses.";
+      document.getElementsByTagName('head')[0].appendChild(metaDescription);
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Hero />
+        <Services />
+        <Technologies />
+        <ContactForm />
+      </main>
+      <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
