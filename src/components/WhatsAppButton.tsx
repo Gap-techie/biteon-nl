@@ -62,13 +62,13 @@ export function WhatsAppButton() {
           </div>
         )}
 
-        {/* WhatsApp button */}
+        {/* WhatsApp button with updated animation */}
         <button
           onClick={handleWhatsAppClick}
-          className="bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg flex items-center justify-center transform transition-all duration-300 hover:scale-110 whatsapp-bubble-animation"
+          className="bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 animate-float"
           aria-label="Chat with us on WhatsApp"
         >
-          <MessageCircle size={24} />
+          <MessageCircle size={24} className="animate-pulse-slow" />
         </button>
       </div>
 
