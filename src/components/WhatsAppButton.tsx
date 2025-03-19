@@ -42,7 +42,7 @@ export function WhatsAppButton() {
   return (
     <>
       <div 
-        className={`fixed bottom-6 right-6 z-50 transition-all duration-500 flex items-end gap-3 ${
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-700 flex items-end gap-3 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -62,13 +62,14 @@ export function WhatsAppButton() {
           </div>
         )}
 
-        {/* WhatsApp button with updated animation */}
+        {/* WhatsApp button with gentle animation */}
         <button
           onClick={handleWhatsAppClick}
-          className="bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 animate-float"
+          className="bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-500 hover:scale-105 relative overflow-hidden"
           aria-label="Chat with us on WhatsApp"
         >
-          <MessageCircle size={24} className="animate-pulse-slow" />
+          <span className="absolute inset-0 bg-shine bg-[length:400%_100%] animate-background-shine opacity-30"></span>
+          <MessageCircle size={24} />
         </button>
       </div>
 
