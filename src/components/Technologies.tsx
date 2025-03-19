@@ -2,6 +2,7 @@
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code, Server, Database, TestTube, Cloud, Layers } from 'lucide-react';
+import { useEffect, useState, useCallback } from 'react';
 
 // Technology logos and data
 const techCategories = [
@@ -88,6 +89,59 @@ const techCategories = [
 ];
 
 export function Technologies() {
+  const [activeCategory, setActiveCategory] = useState("languages");
+  const [isHovering, setIsHovering] = useState(false);
+  const [animateCards, setAnimateCards] = useState(false);
+
+  // Auto-toggle between categories
+  const rotateCategories = useCallback(() => {
+    const currentIndex = techCategories.findIndex(cat => cat.id === activeCategory);
+    const nextIndex = (currentIndex + 1) % techCategories.length;
+    
+    // First trigger the exit animation
+    setAnimateCards(false);
+    
+    // Then after a short delay, change the category and trigger the entrance animation
+    setTimeout(() => {
+      setActiveCategory(techCategories[nextIndex].id);
+      setAnimateCards(true);
+    }, 300); // This delay should match the exit animation duration
+  }, [activeCategory]);
+
+  useEffect(() => {
+    let interval: number | null = null;
+    
+    // Start the animation for the first load
+    setAnimateCards(true);
+    
+    // Only auto-rotate if not hovering
+    if (!isHovering) {
+      interval = window.setInterval(() => {
+        rotateCategories();
+      }, 5000); // Rotate every 5 seconds
+    }
+    
+    return () => {
+      if (interval !== null) {
+        clearInterval(interval);
+      }
+    };
+  }, [isHovering, rotateCategories]);
+
+  // When user manually changes tab, animate the cards
+  const handleTabChange = (value: string) => {
+    if (value === activeCategory) return;
+    
+    // First trigger the exit animation
+    setAnimateCards(false);
+    
+    // Then after a short delay, change the category and trigger the entrance animation
+    setTimeout(() => {
+      setActiveCategory(value);
+      setAnimateCards(true);
+    }, 300);
+  };
+
   return (
     <section id="technologies" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-tech-pattern opacity-60 z-0"></div>
@@ -103,14 +157,20 @@ export function Technologies() {
         </ScrollReveal>
 
         <ScrollReveal delay={300}>
-          <Tabs defaultValue="languages" className="w-full">
+          <Tabs 
+            value={activeCategory} 
+            onValueChange={handleTabChange}
+            className="w-full"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
             <div className="flex justify-center mb-8 overflow-x-auto pb-2">
               <TabsList className="bg-gray-100 p-1 rounded-full">
                 {techCategories.map((category) => (
                   <TabsTrigger 
                     key={category.id}
                     value={category.id}
-                    className="rounded-full px-4 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-300 flex items-center"
+                    className="rounded-full px-4 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500 flex items-center"
                   >
                     {category.icon}
                     {category.label}
@@ -120,12 +180,19 @@ export function Technologies() {
             </div>
             
             {techCategories.map((category) => (
-              <TabsContent key={category.id} value={category.id} className="mt-6">
+              <TabsContent key={category.id} value={category.id} className="mt-6 transition-all duration-500">
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {category.items.map((tech, index) => (
                     <div 
                       key={index}
-                      className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-biteon-blue/30 transition-all duration-300"
+                      className={`flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-biteon-blue/30 transition-all duration-500 ${
+                        animateCards 
+                          ? 'opacity-100 transform translate-y-0 scale-100' 
+                          : 'opacity-0 transform translate-y-4 scale-95'
+                      }`}
+                      style={{ 
+                        transitionDelay: `${animateCards ? index * 50 : 0}ms`
+                      }}
                     >
                       <div className="w-12 h-12 flex items-center justify-center mb-3">
                         <img 
