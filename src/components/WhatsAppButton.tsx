@@ -1,5 +1,5 @@
 
-import { MessageCircle, X } from 'lucide-react';
+import { MessageCircle, X, ArrowDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { 
   Dialog,
@@ -42,15 +42,15 @@ export function WhatsAppButton() {
   return (
     <>
       <div 
-        className={`fixed bottom-6 right-6 z-50 transition-all duration-700 flex items-end gap-3 ${
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-700 flex flex-col items-end gap-2 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        {/* Popup message */}
+        {/* Popup message positioned above the button with an arrow */}
         {showPopup && (
           <div 
             onClick={() => setShowDialog(true)}
-            className="bg-white max-w-[240px] p-3 rounded-lg shadow-lg animate-fade-in cursor-pointer relative mb-2"
+            className="bg-white mb-1 p-3 rounded-lg shadow-lg animate-fade-in cursor-pointer relative"
           >
             <button 
               onClick={closePopup}
@@ -59,6 +59,11 @@ export function WhatsAppButton() {
               <X size={14} />
             </button>
             <p className="text-sm font-medium text-gray-800">Need assistance? Chat with us now!</p>
+            
+            {/* Arrow pointing to the button */}
+            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 text-white">
+              <ArrowDown size={20} className="text-white drop-shadow-md" />
+            </div>
           </div>
         )}
 
