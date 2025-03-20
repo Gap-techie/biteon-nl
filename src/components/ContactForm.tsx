@@ -59,9 +59,9 @@ export function ContactForm() {
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             <div className="grid md:grid-cols-2">
               <ScrollReveal delay={300} direction="left">
-                <div className="bg-biteon-blue p-8 md:p-12 text-white">
+                <div className="bg-biteon-gradient p-8 md:p-12 text-white">
                   <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-                  <p className="mb-8">We're excited to hear about your project. Let's create something amazing together.</p>
+                  <p className="mb-8">We'd love to hear about your project and explore how we can collaborate to bring your vision to life. Let's create something extraordinary together!</p>
                   
                   <div className="space-y-6">
                     <div>
@@ -74,7 +74,7 @@ export function ContactForm() {
                     </div>
                     <div>
                       <p className="text-white/70 mb-1">Address</p>
-                      <p className="font-medium">123 Tech Street, Suite 456<br />San Francisco, CA 94107</p>
+                      <p className="font-medium">Eindhoven, The Netherlands</p>
                     </div>
                   </div>
                   

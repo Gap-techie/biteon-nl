@@ -102,11 +102,15 @@
   }
 
   .gradient-text {
-    background: linear-gradient(90deg, #2271BF, #000000);
+    background: linear-gradient(90deg, #0272bf, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+  }
+
+  .biteon-glass {
+    @apply bg-biteon-blue/10 backdrop-blur-md border border-biteon-blue/20 shadow-lg;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -130,7 +134,7 @@
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #2271BF;
+    background-color: #0272bf;
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
   }

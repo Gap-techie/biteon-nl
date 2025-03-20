@@ -30,7 +30,7 @@ const Index = () => {
     const metaTags = [
       {
         name: "keywords",
-        content: "web development, software agency, digital transformation, agile transformation, leadership coaching, consulting, biteon"
+        content: "web development, software agency, digital transformation, agile transformation, leadership coaching, consulting, biteon, eindhoven, netherlands"
       },
       {
         name: "author",
@@ -80,6 +80,11 @@ const Index = () => {
         "email": "info@biteon.nl"
       },
       "description": "Biteon is a premium web development and software agency specializing in modern, futuristic solutions for businesses.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Eindhoven",
+        "addressCountry": "Netherlands"
+      },
       "sameAs": [
         "https://www.linkedin.com/company/biteon",
         "https://twitter.com/biteon",
@@ -130,8 +135,8 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <Services />
-        <AboutUs />
         <Technologies />
+        <AboutUs />
         <ContactForm />
       </main>
       <Footer />

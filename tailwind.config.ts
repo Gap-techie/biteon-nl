@@ -64,13 +64,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				biteon: {
-					blue: '#2271BF',
+					blue: '#0272bf',
 					black: '#000000',
 					white: '#FFFFFF',
 					gray: '#F0F2F5',
 					'dark-gray': '#121212',
-					'light-blue': '#5DA9FF',
-					'dark-blue': '#1A4980',
+					'light-blue': '#3a9eff',
+					'dark-blue': '#015a9c',
 				}
 			},
 			borderRadius: {
@@ -161,9 +161,12 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(to right, rgba(34, 113, 191, 0.05), rgba(0, 0, 0, 0.1))',
-				'tech-pattern': 'linear-gradient(60deg, rgba(34, 113, 191, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%)',
-				'shine': 'linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%)'
+				'hero-pattern': 'linear-gradient(to right, rgba(2, 114, 191, 0.05), rgba(0, 0, 0, 0.1))',
+				'tech-pattern': 'linear-gradient(60deg, rgba(2, 114, 191, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%)',
+				'shine': 'linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%)',
+				'biteon-gradient': 'linear-gradient(135deg, #0272bf 0%, #015a9c 100%)',
+				'biteon-gradient-light': 'linear-gradient(135deg, rgba(2, 114, 191, 0.8) 0%, rgba(58, 158, 255, 0.8) 100%)',
+				'biteon-gradient-trans': 'linear-gradient(135deg, rgba(2, 114, 191, 0.2) 0%, rgba(1, 90, 156, 0.2) 100%)',
 			}
 		}
 	},
