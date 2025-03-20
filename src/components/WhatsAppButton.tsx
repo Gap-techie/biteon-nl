@@ -31,7 +31,7 @@ export function WhatsAppButton() {
   }, []);
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/31622944402', '_blank');
+    window.open('https://wa.me/123456789', '_blank');
   };
 
   const closePopup = (e: React.MouseEvent) => {
