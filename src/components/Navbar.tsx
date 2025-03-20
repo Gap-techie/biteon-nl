@@ -46,7 +46,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center">
           <img 
-            src="/lovable-uploads/1ab722f3-1445-4d3a-8f83-37c38d179fa4.png" 
+            src="/lovable-uploads/07d321d4-a06d-45cb-929d-98c40a0607ed.png" 
             alt="Biteon" 
             className="h-8 md:h-10 w-auto" 
           />
@@ -72,6 +72,16 @@ export function Navbar() {
             Services
           </a>
           <a 
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+            className="text-gray-800 hover:text-biteon-blue hover-underline-animation font-medium transition-colors"
+          >
+            About Us
+          </a>
+          <a 
             href="#technologies"
             onClick={(e) => {
               e.preventDefault();
@@ -95,10 +105,10 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <Button 
-            onClick={() => scrollToSection('contact')}
+            onClick={() => window.open('https://wa.me/31622944402', '_blank')}
             className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105"
           >
-            Get Started
+            Chat on WhatsApp
           </Button>
         </div>
 
@@ -138,6 +148,16 @@ export function Navbar() {
             Services
           </a>
           <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+            className="text-gray-800 hover:text-biteon-blue font-medium text-lg py-2 transition-colors"
+          >
+            About Us
+          </a>
+          <a
             href="#technologies"
             onClick={(e) => {
               e.preventDefault();
@@ -158,10 +178,10 @@ export function Navbar() {
             Contact
           </a>
           <Button 
-            onClick={() => scrollToSection('contact')}
+            onClick={() => window.open('https://wa.me/31622944402', '_blank')}
             className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4"
           >
-            Get Started
+            Chat on WhatsApp
           </Button>
         </nav>
       </div>

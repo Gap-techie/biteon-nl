@@ -66,11 +66,11 @@ export function ContactForm() {
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/70 mb-1">Email</p>
-                      <p className="font-medium">contact@biteon.com</p>
+                      <p className="font-medium">info@biteon.nl</p>
                     </div>
                     <div>
                       <p className="text-white/70 mb-1">Phone</p>
-                      <p className="font-medium">+1 (123) 456-7890</p>
+                      <p className="font-medium">+31 622 944 402</p>
                     </div>
                     <div>
                       <p className="text-white/70 mb-1">Address</p>
@@ -143,7 +143,7 @@ export function ContactForm() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+1 (123) 456-7890"
+                          placeholder="+31 622 944 402"
                           className="border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
                         />
                       </div>

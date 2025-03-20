@@ -33,10 +33,10 @@ export function Hero() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
-                  onClick={scrollToContact}
+                  onClick={() => window.open('https://wa.me/31622944402', '_blank')}
                   className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-8 py-6 rounded-md transition-all duration-300 transform hover:scale-105 text-lg"
                 >
-                  Start Your Project
+                  Chat With Us On WhatsApp
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button 
