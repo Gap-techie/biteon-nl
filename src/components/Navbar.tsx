@@ -46,7 +46,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center">
           <img 
-            src="/lovable-uploads/e24061c2-10f7-4d4f-9dd0-af7da529de44.png" 
+            src="/lovable-uploads/1ab722f3-1445-4d3a-8f83-37c38d179fa4.png" 
             alt="Biteon" 
             className="h-8 md:h-10 w-auto" 
           />

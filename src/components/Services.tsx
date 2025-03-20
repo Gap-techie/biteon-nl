@@ -2,7 +2,7 @@
 import { Code, Server, Smartphone, Layout, Database, Cloud, GitBranch, UserCog, Search, Presentation } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const developmentServices = [
   {
@@ -62,12 +62,58 @@ const advisoryServices = [
 
 export function Services() {
   const [activeTab, setActiveTab] = useState("development");
+  const [isHovering, setIsHovering] = useState(false);
+  const [animateCards, setAnimateCards] = useState(false);
   const [visibleCards, setVisibleCards] = useState(developmentServices);
   
+  // Auto-toggle between categories
+  const rotateCategories = useCallback(() => {
+    const nextTab = activeTab === "development" ? "advisory" : "development";
+    
+    // First trigger the exit animation
+    setAnimateCards(false);
+    
+    // Then after a short delay, change the category and trigger the entrance animation
+    setTimeout(() => {
+      setActiveTab(nextTab);
+      setVisibleCards(nextTab === "development" ? developmentServices : advisoryServices);
+      setAnimateCards(true);
+    }, 300); // This delay should match the exit animation duration
+  }, [activeTab]);
+
+  useEffect(() => {
+    let interval: number | null = null;
+    
+    // Start the animation for the first load
+    setAnimateCards(true);
+    
+    // Only auto-rotate if not hovering
+    if (!isHovering) {
+      interval = window.setInterval(() => {
+        rotateCategories();
+      }, 5000); // Rotate every 5 seconds
+    }
+    
+    return () => {
+      if (interval !== null) {
+        clearInterval(interval);
+      }
+    };
+  }, [isHovering, rotateCategories]);
+
+  // When user manually changes tab, animate the cards
   const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    // The animation will be handled by CSS transitions
-    setVisibleCards(value === "development" ? developmentServices : advisoryServices);
+    if (value === activeTab) return;
+    
+    // First trigger the exit animation
+    setAnimateCards(false);
+    
+    // Then after a short delay, change the category and trigger the entrance animation
+    setTimeout(() => {
+      setActiveTab(value);
+      setVisibleCards(value === "development" ? developmentServices : advisoryServices);
+      setAnimateCards(true);
+    }, 300);
   };
 
   return (
@@ -87,7 +133,14 @@ export function Services() {
         </ScrollReveal>
 
         <ScrollReveal className="mb-12">
-          <Tabs defaultValue="development" className="w-full flex flex-col items-center" onValueChange={handleTabChange}>
+          <Tabs 
+            defaultValue="development" 
+            value={activeTab}
+            onValueChange={handleTabChange}
+            className="w-full flex flex-col items-center"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
             <TabsList className="mb-8 bg-gray-100/80 p-1 rounded-full">
               <TabsTrigger value="development" className="rounded-full px-6 py-2">
                 Development
@@ -101,7 +154,16 @@ export function Services() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {developmentServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100} className="h-full">
-                    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02]">
+                    <div 
+                      className={`bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] ${
+                        animateCards && activeTab === "development"
+                          ? 'opacity-100 transform translate-y-0 scale-100' 
+                          : 'opacity-0 transform translate-y-4 scale-95'
+                      }`}
+                      style={{ 
+                        transitionDelay: `${animateCards ? index * 50 : 0}ms`
+                      }}
+                    >
                       <div className="bg-biteon-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-5">
                         {service.icon}
                       </div>
@@ -117,7 +179,16 @@ export function Services() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {advisoryServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100} className="h-full">
-                    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02]">
+                    <div 
+                      className={`bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] ${
+                        animateCards && activeTab === "advisory"
+                          ? 'opacity-100 transform translate-y-0 scale-100' 
+                          : 'opacity-0 transform translate-y-4 scale-95'
+                      }`}
+                      style={{ 
+                        transitionDelay: `${animateCards ? index * 50 : 0}ms`
+                      }}
+                    >
                       <div className="bg-biteon-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-5">
                         {service.icon}
                       </div>
