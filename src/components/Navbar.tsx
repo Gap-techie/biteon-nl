@@ -72,6 +72,16 @@ export function Navbar() {
             Services
           </a>
           <a 
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+            className="text-gray-800 hover:text-biteon-blue hover-underline-animation font-medium transition-colors"
+          >
+            About Us
+          </a>
+          <a 
             href="#technologies"
             onClick={(e) => {
               e.preventDefault();
@@ -98,7 +108,7 @@ export function Navbar() {
             onClick={() => scrollToSection('contact')}
             className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105"
           >
-            Get Started
+            Chat with Us
           </Button>
         </div>
 
@@ -138,6 +148,16 @@ export function Navbar() {
             Services
           </a>
           <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+            className="text-gray-800 hover:text-biteon-blue font-medium text-lg py-2 transition-colors"
+          >
+            About Us
+          </a>
+          <a
             href="#technologies"
             onClick={(e) => {
               e.preventDefault();
@@ -161,7 +181,7 @@ export function Navbar() {
             onClick={() => scrollToSection('contact')}
             className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4"
           >
-            Get Started
+            Chat with Us
           </Button>
         </nav>
       </div>
