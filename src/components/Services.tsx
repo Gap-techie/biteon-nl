@@ -155,7 +155,7 @@ export function Services() {
                 {developmentServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100} className="h-full">
                     <div 
-                      className={`bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] ${
+                      className={`bg-white text-biteon-blue rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] ${
                         animateCards && activeTab === "development"
                           ? 'opacity-100 transform translate-y-0 scale-100' 
                           : 'opacity-0 transform translate-y-4 scale-95'

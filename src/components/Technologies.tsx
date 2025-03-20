@@ -118,7 +118,7 @@ export function Technologies() {
     if (!isHovering) {
       interval = window.setInterval(() => {
         rotateCategories();
-      }, 5000); // Rotate every 5 seconds
+      }, 4000); // Rotate every 4 seconds
     }
     
     return () => {

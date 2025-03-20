@@ -70,7 +70,7 @@ export function ContactForm() {
                     </div>
                     <div>
                       <p className="text-white/70 mb-1">Phone</p>
-                      <p className="font-medium">+31 622944402</p>
+                      <p className="font-medium">+31 (0) 622 944 402</p>
                     </div>
                     <div>
                       <p className="text-white/70 mb-1">Address</p>
