@@ -8,11 +8,14 @@ import { toast } from 'sonner';
 import emailjs from 'emailjs-com';
 import { Mail, Phone, Building, User, Send } from 'lucide-react';
 
-// You'll need to sign up for EmailJS and get your own service ID, template ID, and user ID
-// Visit https://www.emailjs.com/ to create an account
-const EMAILJS_SERVICE_ID = "service_biteonemail"; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = "template_contact_form"; // Replace with your template ID
-const EMAILJS_USER_ID = "your_user_id"; // Replace with your user ID
+// EmailJS configuration
+// You need to replace these with your actual EmailJS credentials
+const EMAILJS_SERVICE_ID = "service_biteonemail"; // Your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = "template_contact_form"; // Your EmailJS template ID
+const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Replace with your public key from EmailJS
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -81,12 +84,12 @@ export function ContactForm() {
         message: formData.message
       };
 
-      // Send email using EmailJS
+      // Send email using EmailJS - updated to use the proper method
       const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_USER_ID
+        EMAILJS_PUBLIC_KEY
       );
 
       if (response.status === 200) {
