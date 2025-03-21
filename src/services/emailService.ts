@@ -2,10 +2,9 @@
 import emailjs from 'emailjs-com';
 
 // EmailJS configuration
-// You need to replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = "service_biteonemail"; // Your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = "template_contact_form"; // Your EmailJS template ID
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // Replace with your public key from EmailJS
+const EMAILJS_SERVICE_ID = "obaid@biteon.nl"; // Your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = "template_u7nxi4o"; // Your EmailJS template ID (fixed missing quote)
+const EMAILJS_PUBLIC_KEY = "Y2WZGxGhLra9cZ-gC"; // Your public key from EmailJS
 
 // Initialize EmailJS
 emailjs.init(EMAILJS_PUBLIC_KEY);
