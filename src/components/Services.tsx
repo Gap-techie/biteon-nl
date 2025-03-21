@@ -127,7 +127,7 @@ export function Services() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We offer comprehensive software solutions tailored to meet the unique needs of your business.
+              We offer comprehensive software solutions tailored to meet the unique needs of your business, combining innovation with expertise to deliver exceptional results that drive your digital transformation journey.
             </p>
           </div>
         </ScrollReveal>
@@ -142,10 +142,16 @@ export function Services() {
             onMouseLeave={() => setIsHovering(false)}
           >
             <TabsList className="mb-8 bg-gray-100/80 p-1 rounded-full">
-              <TabsTrigger value="development" className="rounded-full px-6 py-2">
+              <TabsTrigger 
+                value="development" 
+                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500"
+              >
                 Development
               </TabsTrigger>
-              <TabsTrigger value="advisory" className="rounded-full px-6 py-2">
+              <TabsTrigger 
+                value="advisory" 
+                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500"
+              >
                 Advisory & Transformation
               </TabsTrigger>
             </TabsList>
@@ -155,7 +161,7 @@ export function Services() {
                 {developmentServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100} className="h-full">
                     <div 
-                      className={`bg-white text-biteon-blue rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] ${
+                      className={`bg-white text-biteon-blue rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] hover:bg-gradient-to-br hover:from-white hover:to-biteon-blue/5 ${
                         animateCards && activeTab === "development"
                           ? 'opacity-100 transform translate-y-0 scale-100' 
                           : 'opacity-0 transform translate-y-4 scale-95'
@@ -180,7 +186,7 @@ export function Services() {
                 {advisoryServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100} className="h-full">
                     <div 
-                      className={`bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] ${
+                      className={`bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] hover:bg-gradient-to-br hover:from-white hover:to-biteon-blue/5 ${
                         animateCards && activeTab === "advisory"
                           ? 'opacity-100 transform translate-y-0 scale-100' 
                           : 'opacity-0 transform translate-y-4 scale-95'

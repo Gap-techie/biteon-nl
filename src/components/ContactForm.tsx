@@ -21,12 +21,30 @@ export function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Prepare email data
+      const emailData = {
+        to: 'obaid@biteon.nl',
+        subject: `New Contact Form Submission from ${formData.name}`,
+        body: `
+          Name: ${formData.name}
+          Email: ${formData.email}
+          Phone: ${formData.phone || 'Not provided'}
+          Company: ${formData.company || 'Not provided'}
+          
+          Message:
+          ${formData.message}
+        `
+      };
+
+      // Send email using a service like EmailJS or your backend
+      // Simulating API call for now
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       toast.success("Message sent successfully! We'll get back to you soon.");
       setFormData({
         name: '',
@@ -35,8 +53,12 @@ export function ContactForm() {
         company: '',
         message: '',
       });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error("There was an error sending your message. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
