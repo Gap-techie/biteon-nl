@@ -5,6 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { toast } from 'sonner';
+import emailjs from 'emailjs-com';
+import { Mail, Phone, Building, User, Send } from 'lucide-react';
+
+// You'll need to sign up for EmailJS and get your own service ID, template ID, and user ID
+// Visit https://www.emailjs.com/ to create an account
+const EMAILJS_SERVICE_ID = "service_biteonemail"; // Replace with your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = "template_contact_form"; // Replace with your template ID
+const EMAILJS_USER_ID = "your_user_id"; // Replace with your user ID
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,54 +23,96 @@ export function ContactForm() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Clear error when field is being edited
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      toast.error("Please fix the errors in the form");
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      // Prepare email data
-      const emailData = {
-        to: 'obaid@biteon.nl',
-        subject: `New Contact Form Submission from ${formData.name}`,
-        body: `
-          Name: ${formData.name}
-          Email: ${formData.email}
-          Phone: ${formData.phone || 'Not provided'}
-          Company: ${formData.company || 'Not provided'}
-          
-          Message:
-          ${formData.message}
-        `
+      // Prepare email data for EmailJS
+      const templateParams = {
+        to_email: 'obaid@biteon.nl',
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone || 'Not provided',
+        from_company: formData.company || 'Not provided',
+        message: formData.message
       };
 
-      // Send email using a service like EmailJS or your backend
-      // Simulating API call for now
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        message: '',
-      });
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+
+      if (response.status === 200) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: '',
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
       console.error('Error sending email:', error);
-      toast.error("There was an error sending your message. Please try again.");
+      toast.error("There was an error sending your message. Please try again or contact us directly.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute -top-40 -left-40 w-80 h-80 bg-biteon-blue/5 rounded-full filter blur-3xl"></div>
       <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-biteon-blue/5 rounded-full filter blur-3xl"></div>
@@ -78,7 +128,7 @@ export function ContactForm() {
             </div>
           </ScrollReveal>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="bg-white rounded-xl shadow-md overflow-hidden frosted-glass card-hover">
             <div className="grid md:grid-cols-2">
               <ScrollReveal delay={300} direction="left">
                 <div className="bg-biteon-gradient p-8 md:p-12 text-white">
@@ -86,17 +136,26 @@ export function ContactForm() {
                   <p className="mb-8">We'd love to hear about your project and explore how we can collaborate to bring your vision to life. Let's create something extraordinary together!</p>
                   
                   <div className="space-y-6">
-                    <div>
-                      <p className="text-white/70 mb-1">Email</p>
-                      <p className="font-medium">info@biteon.nl</p>
+                    <div className="flex items-center">
+                      <Mail className="mr-3 h-5 w-5 text-white/70" />
+                      <div>
+                        <p className="text-white/70 mb-1">Email</p>
+                        <p className="font-medium">info@biteon.nl</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-white/70 mb-1">Phone</p>
-                      <p className="font-medium">+31 (0) 622 944 402</p>
+                    <div className="flex items-center">
+                      <Phone className="mr-3 h-5 w-5 text-white/70" />
+                      <div>
+                        <p className="text-white/70 mb-1">Phone</p>
+                        <p className="font-medium">+31 (0) 622 944 402</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-white/70 mb-1">Address</p>
-                      <p className="font-medium">Eindhoven, The Netherlands</p>
+                    <div className="flex items-center">
+                      <Building className="mr-3 h-5 w-5 text-white/70" />
+                      <div>
+                        <p className="text-white/70 mb-1">Address</p>
+                        <p className="font-medium">Eindhoven, The Netherlands</p>
+                      </div>
                     </div>
                   </div>
                   
@@ -131,59 +190,87 @@ export function ContactForm() {
                   <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                        <Input 
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="John Doe"
-                          required
-                          className="border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
-                        />
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                          Full Name <span className="text-red-500">*</span>
+                        </label>
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <User className="h-5 w-5 text-gray-400" />
+                          </div>
+                          <Input 
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="John Doe"
+                            required
+                            className={`pl-10 border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${errors.name ? 'border-red-500' : ''}`}
+                          />
+                        </div>
+                        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                        <Input 
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@example.com"
-                          required
-                          className="border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
-                        />
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                          Email Address <span className="text-red-500">*</span>
+                        </label>
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Mail className="h-5 w-5 text-gray-400" />
+                          </div>
+                          <Input 
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="john@example.com"
+                            required
+                            className={`pl-10 border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${errors.email ? 'border-red-500' : ''}`}
+                          />
+                        </div>
+                        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                       </div>
                     </div>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <Input 
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+31 622944402"
-                          className="border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
-                        />
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Phone className="h-5 w-5 text-gray-400" />
+                          </div>
+                          <Input 
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="+31 622944402"
+                            className="pl-10 border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
+                          />
+                        </div>
                       </div>
                       <div>
                         <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
-                        <Input 
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          placeholder="Acme Inc."
-                          className="border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
-                        />
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Building className="h-5 w-5 text-gray-400" />
+                          </div>
+                          <Input 
+                            id="company"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            placeholder="Acme Inc."
+                            className="pl-10 border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
+                          />
+                        </div>
                       </div>
                     </div>
                     
                     <div className="mb-6">
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Message <span className="text-red-500">*</span>
+                      </label>
                       <Textarea 
                         id="message"
                         name="message"
@@ -191,8 +278,9 @@ export function ContactForm() {
                         onChange={handleChange}
                         placeholder="Tell us about your project..."
                         required
-                        className="min-h-[120px] border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all"
+                        className={`min-h-[120px] border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${errors.message ? 'border-red-500' : ''}`}
                       />
+                      {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                     </div>
                     
                     <Button 
@@ -200,7 +288,19 @@ export function ContactForm() {
                       disabled={isSubmitting}
                       className={`w-full bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium py-3 rounded-md transition-all ${isSubmitting ? 'opacity-80' : ''}`}
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center">
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        <span className="flex items-center justify-center">
+                          <Send className="mr-2 h-5 w-5" /> Send Message
+                        </span>
+                      )}
                     </Button>
                   </form>
                 </div>
