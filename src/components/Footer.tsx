@@ -112,14 +112,15 @@ export function Footer() {
         </div>
         
         <ScrollReveal>
-          <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm mb-4 md:mb-0">
+          {/* Updated footer bottom section to matte black */}
+          <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center bg-[#222222] -mx-4 -mb-12 px-6 py-6">
+            <p className="text-gray-300 text-sm mb-4 md:mb-0">
               © {currentYear} Biteon. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-biteon-blue text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-biteon-blue text-sm transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-500 hover:text-biteon-blue text-sm transition-colors">Cookie Policy</a>
+              <a href="#" className="text-gray-300 hover:text-biteon-blue text-sm transition-colors">Privacy Policy</a>
+              <a href="#" className="text-gray-300 hover:text-biteon-blue text-sm transition-colors">Terms of Service</a>
+              <a href="#" className="text-gray-300 hover:text-biteon-blue text-sm transition-colors">Cookie Policy</a>
             </div>
           </div>
         </ScrollReveal>

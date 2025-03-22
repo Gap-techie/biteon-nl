@@ -1,4 +1,3 @@
-
 import { Code, Server, Smartphone, Layout, Database, Cloud, GitBranch, UserCog, Search, Presentation } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -91,7 +90,7 @@ export function Services() {
     if (!isHovering) {
       interval = window.setInterval(() => {
         rotateCategories();
-      }, 4000); // Reduced to 4000 per request
+      }, 4000); // Auto-rotate every 4 seconds
     }
     
     return () => {
@@ -137,9 +136,10 @@ export function Services() {
             <img 
               src="/lovable-uploads/81b1d4a8-2d45-4c82-81f2-5288a23f44e7.png"
               alt="Services categories"
-              className="w-auto h-20 max-w-full rounded-full opacity-80"
+              className="w-auto h-20 max-w-full rounded-full opacity-90"
             />
           </div>
+          
           <Tabs 
             defaultValue="development" 
             value={activeTab}

@@ -53,18 +53,13 @@ export function Hero() {
           <div className="md:w-6/12 flex justify-center md:justify-end">
             <ScrollReveal delay={600} direction="right">
               <div className="relative rounded-lg overflow-hidden shadow-xl">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-biteon-blue to-biteon-dark-blue rounded-lg blur opacity-30 animate-pulse-slow"></div>
+                {/* Removed the blue background color from the image container */}
                 <img 
                   src="/lovable-uploads/ac3d8970-3f0b-488b-b1e4-205ab4bb1cf8.png" 
                   alt="Software development and business digital transformation" 
                   className="relative rounded-lg w-full h-auto object-cover shadow-lg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                  <div className="p-6 text-white">
-                    <h4 className="text-xl font-bold mb-1">Bridging Business & Technology</h4>
-                    <p className="text-sm text-gray-200">Driving digital transformation with innovative solutions</p>
-                  </div>
-                </div>
+                {/* Removed the text overlay on the image */}
               </div>
             </ScrollReveal>
           </div>
