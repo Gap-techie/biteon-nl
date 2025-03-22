@@ -6,32 +6,32 @@ import { useEffect, useState, useCallback } from 'react';
 
 const developmentServices = [
   {
-    icon: <Layout className="h-10 w-10 text-biteon-blue" />,
+    icon: <Layout className="h-10 w-10 text-gray-700" />,
     title: 'Web Design & Development',
     description: 'Create responsive, user-friendly websites that drive engagement and conversions with modern technologies.',
   },
   {
-    icon: <Smartphone className="h-10 w-10 text-biteon-blue" />,
+    icon: <Smartphone className="h-10 w-10 text-gray-700" />,
     title: 'Mobile App Development',
     description: 'Native and cross-platform mobile applications crafted for optimal performance and user experience.',
   },
   {
-    icon: <Code className="h-10 w-10 text-biteon-blue" />,
+    icon: <Code className="h-10 w-10 text-gray-700" />,
     title: 'Custom Software',
     description: 'Tailor-made software solutions designed to address your specific business challenges and requirements.',
   },
   {
-    icon: <Server className="h-10 w-10 text-biteon-blue" />,
+    icon: <Server className="h-10 w-10 text-gray-700" />,
     title: 'Backend Systems',
     description: 'Scalable and secure backend architectures that power your applications with reliable performance.',
   },
   {
-    icon: <Database className="h-10 w-10 text-biteon-blue" />,
+    icon: <Database className="h-10 w-10 text-gray-700" />,
     title: 'Database Design',
     description: 'Efficient database structures ensuring data integrity, security, and optimal query performance.',
   },
   {
-    icon: <Cloud className="h-10 w-10 text-biteon-blue" />,
+    icon: <Cloud className="h-10 w-10 text-gray-700" />,
     title: 'DevOps & Cloud',
     description: 'Streamline deployment processes and infrastructure management with modern DevOps practices.',
   },
@@ -39,22 +39,22 @@ const developmentServices = [
 
 const advisoryServices = [
   {
-    icon: <GitBranch className="h-10 w-10 text-biteon-blue" />,
+    icon: <GitBranch className="h-10 w-10 text-gray-700" />,
     title: 'Agile & SAFe Transformation',
     description: 'Implement and scale Agile frameworks like Scrum, SAFe, and Kanban for high-performing teams.',
   },
   {
-    icon: <UserCog className="h-10 w-10 text-biteon-blue" />,
+    icon: <UserCog className="h-10 w-10 text-gray-700" />,
     title: 'Leadership & Coaching',
     description: 'Elevate your leaders with executive coaching and Agile mindset training.',
   },
   {
-    icon: <Search className="h-10 w-10 text-biteon-blue" />,
+    icon: <Search className="h-10 w-10 text-gray-700" />,
     title: 'Consulting & Strategy',
     description: 'Get expert guidance on Agile adoption, process optimization, and change management.',
   },
   {
-    icon: <Presentation className="h-10 w-10 text-biteon-blue" />,
+    icon: <Presentation className="h-10 w-10 text-gray-700" />,
     title: 'Workshops & Training',
     description: 'Hands-on training for teams, Scrum Masters, and executives to drive Agile excellence.',
   },
@@ -91,7 +91,7 @@ export function Services() {
     if (!isHovering) {
       interval = window.setInterval(() => {
         rotateCategories();
-      }, 5000); // Rotate every 5 seconds
+      }, 4000); // Reduced from 5000 to 4000 per request
     }
     
     return () => {
@@ -144,13 +144,13 @@ export function Services() {
             <TabsList className="mb-8 bg-gray-100/80 p-1 rounded-full">
               <TabsTrigger 
                 value="development" 
-                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500"
+                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:shadow-sm transition-all duration-500"
               >
                 Development
               </TabsTrigger>
               <TabsTrigger 
                 value="advisory" 
-                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500"
+                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:shadow-sm transition-all duration-500"
               >
                 Advisory & Transformation
               </TabsTrigger>
@@ -161,7 +161,7 @@ export function Services() {
                 {developmentServices.map((service, index) => (
                   <ScrollReveal key={index} delay={index * 100} className="h-full">
                     <div 
-                      className={`bg-white text-biteon-blue rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] hover:bg-gradient-to-br hover:from-white hover:to-biteon-blue/5 ${
+                      className={`bg-white text-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-500 border border-gray-100 h-full flex flex-col transform hover:scale-[1.02] hover:bg-gradient-to-br hover:from-white hover:to-biteon-blue/5 ${
                         animateCards && activeTab === "development"
                           ? 'opacity-100 transform translate-y-0 scale-100' 
                           : 'opacity-0 transform translate-y-4 scale-95'
@@ -170,7 +170,7 @@ export function Services() {
                         transitionDelay: `${animateCards ? index * 50 : 0}ms`
                       }}
                     >
-                      <div className="bg-biteon-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-5">
+                      <div className="w-16 h-16 rounded-lg flex items-center justify-center mb-5">
                         {service.icon}
                       </div>
                       <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
@@ -195,7 +195,7 @@ export function Services() {
                         transitionDelay: `${animateCards ? index * 50 : 0}ms`
                       }}
                     >
-                      <div className="bg-biteon-blue/10 w-16 h-16 rounded-lg flex items-center justify-center mb-5">
+                      <div className="w-16 h-16 rounded-lg flex items-center justify-center mb-5">
                         {service.icon}
                       </div>
                       <h3 className="text-xl font-semibold mb-3">{service.title}</h3>

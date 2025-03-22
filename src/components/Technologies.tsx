@@ -118,7 +118,7 @@ export function Technologies() {
     if (!isHovering) {
       interval = window.setInterval(() => {
         rotateCategories();
-      }, 4000); // Rotate every 4 seconds
+      }, 4000); // Changed from 4000 to 4000 (consistent with Services component)
     }
     
     return () => {
