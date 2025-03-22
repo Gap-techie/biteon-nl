@@ -52,14 +52,12 @@ export function Hero() {
           </div>
           <div className="md:w-6/12 flex justify-center md:justify-end">
             <ScrollReveal delay={600} direction="right">
-              <div className="relative rounded-lg overflow-hidden shadow-xl">
-                {/* Removed the blue background color from the image container */}
+              <div className="overflow-hidden">
                 <img 
                   src="/lovable-uploads/ac3d8970-3f0b-488b-b1e4-205ab4bb1cf8.png" 
                   alt="Software development and business digital transformation" 
-                  className="relative rounded-lg w-full h-auto object-cover shadow-lg"
+                  className="w-full h-auto object-cover"
                 />
-                {/* Removed the text overlay on the image */}
               </div>
             </ScrollReveal>
           </div>

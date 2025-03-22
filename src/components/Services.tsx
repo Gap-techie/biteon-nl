@@ -1,3 +1,4 @@
+
 import { Code, Server, Smartphone, Layout, Database, Cloud, GitBranch, UserCog, Search, Presentation } from 'lucide-react';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -132,14 +133,6 @@ export function Services() {
         </ScrollReveal>
 
         <ScrollReveal className="mb-12">
-          <div className="w-full flex justify-center mb-8">
-            <img 
-              src="/lovable-uploads/81b1d4a8-2d45-4c82-81f2-5288a23f44e7.png"
-              alt="Services categories"
-              className="w-auto h-20 max-w-full rounded-full opacity-90"
-            />
-          </div>
-          
           <Tabs 
             defaultValue="development" 
             value={activeTab}
