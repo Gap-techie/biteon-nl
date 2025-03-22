@@ -55,7 +55,7 @@ export function Hero() {
               <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-biteon-blue to-biteon-dark-blue rounded-lg blur opacity-30 animate-pulse-slow"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  src="/lovable-uploads/ac3d8970-3f0b-488b-b1e4-205ab4bb1cf8.png" 
                   alt="Software development and business digital transformation" 
                   className="relative rounded-lg w-full h-auto object-cover shadow-lg"
                 />

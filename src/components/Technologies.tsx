@@ -118,7 +118,7 @@ export function Technologies() {
     if (!isHovering) {
       interval = window.setInterval(() => {
         rotateCategories();
-      }, 4000); // Changed from 4000 to 4000 (consistent with Services component)
+      }, 4000); // Changed to 4000 to be consistent with Services component
     }
     
     return () => {
@@ -170,7 +170,7 @@ export function Technologies() {
                   <TabsTrigger 
                     key={category.id}
                     value={category.id}
-                    className="rounded-full px-4 py-2 data-[state=active]:bg-white data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500 flex items-center"
+                    className="rounded-full px-4 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500 flex items-center"
                   >
                     {category.icon}
                     {category.label}

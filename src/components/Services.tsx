@@ -91,7 +91,7 @@ export function Services() {
     if (!isHovering) {
       interval = window.setInterval(() => {
         rotateCategories();
-      }, 4000); // Reduced from 5000 to 4000 per request
+      }, 4000); // Reduced to 4000 per request
     }
     
     return () => {
@@ -133,6 +133,13 @@ export function Services() {
         </ScrollReveal>
 
         <ScrollReveal className="mb-12">
+          <div className="w-full flex justify-center mb-8">
+            <img 
+              src="/lovable-uploads/81b1d4a8-2d45-4c82-81f2-5288a23f44e7.png"
+              alt="Services categories"
+              className="w-auto h-20 max-w-full rounded-full opacity-80"
+            />
+          </div>
           <Tabs 
             defaultValue="development" 
             value={activeTab}
@@ -144,13 +151,13 @@ export function Services() {
             <TabsList className="mb-8 bg-gray-100/80 p-1 rounded-full">
               <TabsTrigger 
                 value="development" 
-                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:shadow-sm transition-all duration-500"
+                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500"
               >
                 Development
               </TabsTrigger>
               <TabsTrigger 
                 value="advisory" 
-                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:shadow-sm transition-all duration-500"
+                className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:bg-biteon-blue/10 data-[state=active]:text-biteon-blue data-[state=active]:shadow-sm transition-all duration-500"
               >
                 Advisory & Transformation
               </TabsTrigger>
