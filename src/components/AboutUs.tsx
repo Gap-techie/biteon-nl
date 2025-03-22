@@ -24,7 +24,7 @@ export function AboutUs() {
                   // alt="Biteon team working together" 
                   // className="w-full h-auto object-cover aspect-[4/3] rounded-2xl transition-all hover:scale-105 duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-biteon-blue/30 to-transparent"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-biteon-blue/30 to-transparent"></div> */}
               </div>
             </div>
           </ScrollReveal>
