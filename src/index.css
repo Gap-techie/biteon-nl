@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -92,13 +91,18 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+    font-family: 'Open Sans', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Lato', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    color: #2c3e50; 
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+    @apply overflow-x-hidden;
   }
 
   .glass-effect {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+    @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-lg;
   }
 
   .gradient-text {
@@ -110,27 +114,29 @@
   }
 
   .biteon-glass {
-    @apply bg-biteon-blue/10 backdrop-blur-md border border-biteon-blue/20 shadow-lg;
+    @apply bg-white/80 backdrop-blur-md border border-biteon-blue/20 shadow-lg;
   }
 
   /* New modern styling elements */
   .frosted-glass {
-    @apply backdrop-blur-lg bg-white/20 border border-white/30 shadow-xl;
+    @apply backdrop-blur-lg bg-white/70 border border-white/30 shadow-xl;
   }
 
   .gradient-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
   }
 
   .biteon-gradient {
-    background: linear-gradient(135deg, #0272bf, #025a99);
+    background: linear-gradient(135deg, rgba(2, 114, 191, 0.9), rgba(2, 90, 153, 0.9));
+    backdrop-filter: blur(5px);
   }
 
   .biteon-gradient-light {
-    background: linear-gradient(135deg, rgba(2, 114, 191, 0.1), rgba(2, 114, 191, 0.2));
+    background: linear-gradient(135deg, rgba(2, 114, 191, 0.2), rgba(2, 114, 191, 0.3));
+    backdrop-filter: blur(5px);
   }
 
   .card-hover {
@@ -168,10 +174,6 @@
     transform-origin: bottom left;
   }
 
-  .whatsapp-bubble-animation {
-    animation: pulse 2s infinite ease-in-out;
-  }
-
   /* Enhanced animations */
   @keyframes pulse {
     0% {
@@ -183,6 +185,10 @@
     100% {
       box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
+  }
+
+  .whatsapp-bubble-animation {
+    animation: pulse 2s infinite ease-in-out;
   }
 
   @keyframes float {

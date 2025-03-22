@@ -49,7 +49,7 @@ export function FormField({
             placeholder={placeholder}
             required={required}
             type={type}
-            className={`pl-10 border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${error ? 'border-red-500' : ''}`}
+            className={`pl-10 bg-white/80 backdrop-blur-sm border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${error ? 'border-red-500' : ''}`}
           />
         ) : (
           <Textarea 
@@ -59,7 +59,7 @@ export function FormField({
             onChange={onChange}
             placeholder={placeholder}
             required={required}
-            className={`min-h-[120px] border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${error ? 'border-red-500' : ''}`}
+            className={`min-h-[120px] bg-white/80 backdrop-blur-sm border-gray-300 focus:border-biteon-blue focus:ring focus:ring-biteon-blue/20 transition-all ${error ? 'border-red-500' : ''}`}
           />
         )}
       </div>

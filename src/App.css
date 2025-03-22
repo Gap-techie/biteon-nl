@@ -36,7 +36,7 @@
 
 .card {
   padding: 2em;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
@@ -50,7 +50,7 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #2c3e50;
   font-size: 0.9em;
   margin-top: 1rem;
   transition: color 0.3s ease;
@@ -62,11 +62,14 @@
 
 /* Modern input styling */
 input, textarea, select {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
   transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 2px rgba(2, 114, 191, 0.2);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 /* Button styling */
@@ -74,6 +77,8 @@ button {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  background-color: rgba(2, 114, 191, 0.85);
+  backdrop-filter: blur(5px);
 }
 
 button::after {
@@ -91,4 +96,25 @@ button::after {
 
 button:active::after {
   transform: translate(-50%, -50%) scale(2);
+}
+
+/* Glass morphism effects */
+.glass-container {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+}
+
+.glass-button {
+  background: rgba(2, 114, 191, 0.8);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
