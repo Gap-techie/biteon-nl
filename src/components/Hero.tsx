@@ -48,7 +48,7 @@ export function Hero() {
             <ScrollReveal delay={600} direction="right">
               <div className="overflow-hidden">
                 <img 
-                  src="/lovable-uploads/ac3d8970-3f0b-488b-b1e4-205ab4bb1cf8.png" 
+                  src="/statics-uploads/ac3d8970-3f0b-488b-b1e4-205ab4bb1cf8.png" 
                   alt="Software development and business digital transformation" 
                   className="w-full h-auto object-cover"
                 />

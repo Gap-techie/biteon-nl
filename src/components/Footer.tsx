@@ -11,7 +11,7 @@ export function Footer() {
           <ScrollReveal delay={100} className="md:col-span-1">
             <div>
               <img 
-                src="/lovable-uploads/e24061c2-10f7-4d4f-9dd0-af7da529de44.png" 
+                src="/statics-uploads/e24061c2-10f7-4d4f-9dd0-af7da529de44.png" 
                 alt="Biteon" 
                 className="h-8 w-auto mb-4" 
               />

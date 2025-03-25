@@ -1,0 +1,16 @@
+{
+    "name": "Biteon",
+    "short_name": "Biteon",
+    "icons": [
+      {
+        "src": "/favicon.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable any"
+      }
+    ],
+    "theme_color": "#0272bf",
+    "background_color": "#ffffff",
+    "display": "standalone"
+  }
+  

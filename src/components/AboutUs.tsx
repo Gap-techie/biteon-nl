@@ -18,7 +18,7 @@ export function AboutUs() {
                 {/* <div className="absolute inset-0 bg-biteon-gradient-trans rounded-2xl"></div> */}
                 <img 
                   // src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  src="/lovable-uploads/about-us.png" 
+                  src="/statics-uploads/about-us.png" 
                   alt="Biteon team working together" 
                   className="w-full h-auto object-cover"
                   // alt="Biteon team working together" 
