@@ -104,7 +104,7 @@ export function ContactForm() {
             </div>
           </ScrollReveal>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden frosted-glass card-hover">
+          <div className="bg-white rounded-xl overflow-hidden frosted-glass card-hover">
             <div className="grid md:grid-cols-2">
               <ContactInfo />
               <ContactFormFields 
