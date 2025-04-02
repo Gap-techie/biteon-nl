@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ScrollReveal delay={100} className="md:col-span-1">
             <div>
               <img 
@@ -49,15 +49,6 @@ export function Footer() {
                   <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">About Us</a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Careers</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Case Studies</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Blog</a>
-                </li>
-                <li>
                   <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Contact</a>
                 </li>
               </ul>
@@ -82,29 +73,6 @@ export function Footer() {
                 </li>
                 <li>
                   <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">QA & Testing</a>
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={400} className="md:col-span-1">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Resources</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Documentation</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Guides</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">FAQ</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Support</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">API References</a>
                 </li>
               </ul>
             </div>

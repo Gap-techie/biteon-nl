@@ -39,7 +39,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-md py-3'
+          ? 'frosted-glass shadow-md py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -106,7 +106,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <Button 
             onClick={() => scrollToSection('contact')}
-            className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105"
+            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105"
           >
             Chat with Us
           </Button>
@@ -124,7 +124,7 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 frosted-glass z-40 transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: '60px' }}
@@ -179,7 +179,7 @@ export function Navbar() {
           </a>
           <Button 
             onClick={() => scrollToSection('contact')}
-            className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4"
+            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4"
           >
             Chat with Us
           </Button>
