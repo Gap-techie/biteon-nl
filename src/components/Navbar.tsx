@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -56,7 +55,6 @@ export function Navbar() {
           />
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a 
             href="#"
@@ -110,14 +108,13 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           <Button 
             onClick={handleWhatsAppClick}
-            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+            className="bg-biteon-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center gap-2 hover:bg-biteon-dark-blue"
           >
             <MessageCircle size={18} />
             Chat with Us
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-800 focus:outline-none"
           onClick={toggleMobileMenu}
@@ -127,7 +124,6 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       <div
         className={`md:hidden fixed inset-0 frosted-glass z-40 transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -184,7 +180,7 @@ export function Navbar() {
           </a>
           <Button 
             onClick={handleWhatsAppClick}
-            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4 flex items-center justify-center gap-2"
+            className="bg-biteon-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4 flex items-center justify-center gap-2 hover:bg-biteon-dark-blue"
           >
             <MessageCircle size={18} />
             Chat with Us
