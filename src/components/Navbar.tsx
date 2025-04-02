@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Navbar() {
@@ -33,6 +33,10 @@ export function Navbar() {
       });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/31622944402', '_blank');
   };
 
   return (
@@ -103,11 +107,12 @@ export function Navbar() {
           </a>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-2">
           <Button 
-            onClick={() => scrollToSection('contact')}
-            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105"
+            onClick={handleWhatsAppClick}
+            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
           >
+            <MessageCircle size={18} />
             Chat with Us
           </Button>
         </div>
@@ -178,9 +183,10 @@ export function Navbar() {
             Contact
           </a>
           <Button 
-            onClick={() => scrollToSection('contact')}
-            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4"
+            onClick={handleWhatsAppClick}
+            className="glass-button hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4 flex items-center justify-center gap-2"
           >
+            <MessageCircle size={18} />
             Chat with Us
           </Button>
         </nav>
