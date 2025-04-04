@@ -15,7 +15,7 @@ export function ContactInfo() {
             <Mail className="mr-3 h-5 w-5 text-white/70" />
             <div>
               <p className="text-white/70 mb-1">Email</p>
-              <p className="font-medium">info@biteon.nl</p>
+              <p className="font-medium">obaid@biteon.nl</p>
             </div>
           </div>
           <div className="flex items-center">

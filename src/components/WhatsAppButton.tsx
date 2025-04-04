@@ -70,11 +70,11 @@ export function WhatsAppButton() {
         {/* WhatsApp button with gentle animation */}
         <button
           onClick={handleWhatsAppClick}
-          className="bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-500 hover:scale-105 relative overflow-hidden"
+          className="bg-[#3fcd4e] hover:bg-[#0fc244] text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-500 hover:scale-105 relative overflow-hidden"
           aria-label="Chat with us on WhatsApp"
         >
           <span className="absolute inset-0 bg-shine bg-[length:400%_100%] animate-background-shine opacity-30"></span>
-          <MessageCircle size={24} />
+          <img src="/statics-uploads/w1.png" alt="WhatsApp Logo" className="w-16 h-16" />
         </button>
       </div>
 

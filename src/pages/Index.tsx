@@ -140,7 +140,7 @@ const Index = () => {
         <ContactForm />
       </main>
       <Footer />
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </div>
   );
 };

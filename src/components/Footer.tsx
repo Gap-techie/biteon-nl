@@ -1,14 +1,15 @@
-
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { WhatsAppButton } from './WhatsAppButton';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-gray-100">
+    <footer className="bg-white/10 backdrop-blur-lg border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <ScrollReveal delay={100} className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <WhatsAppButton />
+          <ScrollReveal delay={100} className="md:col-span-1 glass-card p-6 rounded-xl">
             <div>
               <img 
                 src="/statics-uploads/e24061c2-10f7-4d4f-9dd0-af7da529de44.png" 
@@ -41,7 +42,7 @@ export function Footer() {
             </div>
           </ScrollReveal>
           
-          <ScrollReveal delay={200} className="md:col-span-1">
+          <ScrollReveal delay={200} className="md:col-span-1 glass-card p-6 rounded-xl">
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-3">
@@ -49,22 +50,13 @@ export function Footer() {
                   <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">About Us</a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Careers</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Case Studies</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Blog</a>
-                </li>
-                <li>
                   <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Contact</a>
                 </li>
               </ul>
             </div>
           </ScrollReveal>
-          
-          <ScrollReveal delay={300} className="md:col-span-1">
+         
+          <ScrollReveal delay={300} className="md:col-span-1 glass-card p-6 rounded-xl">
             <div>
               <h3 className="text-lg font-semibold mb-4">Services</h3>
               <ul className="space-y-3">
@@ -86,33 +78,10 @@ export function Footer() {
               </ul>
             </div>
           </ScrollReveal>
-          
-          <ScrollReveal delay={400} className="md:col-span-1">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Resources</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Documentation</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Guides</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">FAQ</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">Support</a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-biteon-blue transition-colors hover-underline-animation">API References</a>
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
         </div>
         
         <ScrollReveal>
-          <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center glass-card p-6 rounded-xl">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
               © {currentYear} Biteon. All rights reserved.
             </p>
