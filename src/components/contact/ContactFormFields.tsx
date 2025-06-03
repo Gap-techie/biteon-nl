@@ -27,7 +27,6 @@ export function ContactFormFields({
   handleSubmit
 }: ContactFormFieldsProps) {
   return (
-    <ScrollReveal delay={500} direction="right">
       <div className="p-8 md:p-12">
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -113,6 +112,5 @@ export function ContactFormFields({
           </Button>
         </form>
       </div>
-    </ScrollReveal>
   );
 }

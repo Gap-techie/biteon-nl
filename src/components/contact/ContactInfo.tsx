@@ -1,11 +1,9 @@
 
 import React from 'react';
 import { Mail, Phone, Building } from 'lucide-react';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export function ContactInfo() {
   return (
-    <ScrollReveal delay={300} direction="left">
       <div className="bg-biteon-gradient p-8 md:p-12 text-white">
         <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
         <p className="mb-8">We'd love to hear about your project and explore how we can collaborate to bring your vision to life. Let's create something extraordinary together!</p>
@@ -58,6 +56,5 @@ export function ContactInfo() {
           </div>
         </div>
       </div>
-    </ScrollReveal>
   );
 }

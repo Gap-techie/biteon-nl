@@ -1,7 +1,5 @@
 
 import { Code2, Rocket } from 'lucide-react';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { Card, CardContent } from '@/components/ui/card';
 
 export function AboutUs() {
   return (
@@ -12,7 +10,6 @@ export function AboutUs() {
       
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal direction="left">
             <div className="relative">
               <div className="relative overflow-hidden">
                 {/* <div className="absolute inset-0 bg-biteon-gradient-trans rounded-2xl"></div> */}
@@ -27,9 +24,7 @@ export function AboutUs() {
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-biteon-blue/30 to-transparent"></div> */}
               </div>
             </div>
-          </ScrollReveal>
           
-          <ScrollReveal direction="right">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">About Us</h2>
               <p className="text-lg text-gray-700 mb-6">
@@ -64,7 +59,6 @@ export function AboutUs() {
                 </div>
               </div>
             </div>
-          </ScrollReveal>
         </div>
       </div>
     </section>

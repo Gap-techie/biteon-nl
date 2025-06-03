@@ -50,7 +50,8 @@ const techCategories = [
       { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
       { name: "Airtable", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/airtable/airtable-original.svg" },
       { name: "Baserow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/basercms/basercms-original.svg" },
-      { name: "Spark", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" }
+      { name: "Spark", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" },
+      { name: "supbase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
     ]
   },
   {
@@ -157,16 +158,13 @@ export function Technologies() {
       <div className="absolute inset-0 bg-tech-pattern opacity-60 z-0"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Tools & Technologies</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We leverage cutting-edge technologies to build robust, scalable, and innovative solutions.
             </p>
           </div>
-        </ScrollReveal>
 
-        <ScrollReveal delay={300}>
           <Tabs 
             value={activeCategory} 
             onValueChange={handleTabChange}
@@ -195,7 +193,7 @@ export function Technologies() {
                   {category.items.map((tech, index) => (
                     <div 
                       key={index}
-                      className={`flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-biteon-blue/30 transition-all duration-500 ${
+                      className={`flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-biteon-blue/30 transition-all duration-800 ${
                         animateCards 
                           ? 'opacity-100 transform translate-y-0 scale-100' 
                           : 'opacity-0 transform translate-y-4 scale-95'
@@ -224,7 +222,6 @@ export function Technologies() {
               </TabsContent>
             ))}
           </Tabs>
-        </ScrollReveal>
       </div>
     </section>
   );

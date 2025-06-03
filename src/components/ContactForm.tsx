@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { ContactInfo } from './contact/ContactInfo';
 import { ContactFormFields } from './contact/ContactFormFields';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+// import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { sendEmail } from '@/services/emailService';
 
 export function ContactForm() {
@@ -95,15 +95,12 @@ export function ContactForm() {
       
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Ready to discuss your project? Fill out the form below and our team will contact you shortly.
               </p>
             </div>
-          </ScrollReveal>
-
           <div className="bg-white rounded-xl shadow-md overflow-hidden frosted-glass card-hover">
             <div className="grid md:grid-cols-2">
               <ContactInfo />

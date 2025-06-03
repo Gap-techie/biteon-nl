@@ -1,4 +1,3 @@
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { WhatsAppButton } from './WhatsAppButton';
 
 export function Footer() {
@@ -9,7 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <WhatsAppButton />
-          <ScrollReveal delay={100} className="md:col-span-1 glass-card p-6 rounded-xl">
+          <div className="md:col-span-1 glass-card p-6 rounded-xl">
             <div>
               <img 
                 src="/statics-uploads/e24061c2-10f7-4d4f-9dd0-af7da529de44.png" 
@@ -40,9 +39,9 @@ export function Footer() {
                 </a>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
           
-          <ScrollReveal delay={200} className="md:col-span-1 glass-card p-6 rounded-xl">
+          <div className="md:col-span-1 glass-card p-6 rounded-xl">
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-3">
@@ -54,9 +53,9 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-          </ScrollReveal>
+          </div>
          
-          <ScrollReveal delay={300} className="md:col-span-1 glass-card p-6 rounded-xl">
+          <div className="md:col-span-1 glass-card p-6 rounded-xl">
             <div>
               <h3 className="text-lg font-semibold mb-4">Services</h3>
               <ul className="space-y-3">
@@ -77,10 +76,10 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
         
-        <ScrollReveal>
+        <div>
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center glass-card p-6 rounded-xl">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
               © {currentYear} Biteon. All rights reserved.
@@ -91,7 +90,7 @@ export function Footer() {
               <a href="#" className="text-gray-500 hover:text-biteon-blue text-sm transition-colors">Cookie Policy</a>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </footer>
   );
