@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Navbar() {
@@ -35,12 +34,16 @@ export function Navbar() {
     }
   };
 
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/31622944402', '_blank');
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-md py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-white/20 backdrop-blur-xl border-b border-white/10 shadow-lg'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -52,7 +55,6 @@ export function Navbar() {
           />
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a 
             href="#"
@@ -103,16 +105,16 @@ export function Navbar() {
           </a>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-2">
           <Button 
-            onClick={() => scrollToSection('contact')}
-            className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105"
+            onClick={handleWhatsAppClick}
+            className="bg-biteon-blue text-white font-medium px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center gap-2 hover:bg-biteon-dark-blue"
           >
+            <MessageCircle size={18} />
             Chat with Us
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-800 focus:outline-none"
           onClick={toggleMobileMenu}
@@ -122,9 +124,8 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 frosted-glass z-40 transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: '60px' }}
@@ -178,9 +179,10 @@ export function Navbar() {
             Contact
           </a>
           <Button 
-            onClick={() => scrollToSection('contact')}
-            className="bg-biteon-blue hover:bg-biteon-dark-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4"
+            onClick={handleWhatsAppClick}
+            className="bg-biteon-blue text-white font-medium px-6 py-2 rounded-md transition-all w-full mt-4 flex items-center justify-center gap-2 hover:bg-biteon-dark-blue"
           >
+            <MessageCircle size={18} />
             Chat with Us
           </Button>
         </nav>

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { ContactInfo } from './contact/ContactInfo';
 import { ContactFormFields } from './contact/ContactFormFields';
-// import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { sendEmail } from '@/services/emailService';
 
 export function ContactForm() {
